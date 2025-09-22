@@ -1,13 +1,13 @@
 import React from 'react';
 import './Product.css'
-const Product = ({product}) => {
+const Product = ({product, handleCart}) => {
     
     return (
         <div className='card'>
             <img src={product.images[0]} height='200px' />
-            <h4>Title: {product.title}</h4>
+            <h4>{product.title}</h4>
             <p>Price: ${product.price} </p>
-            <button>Buy Now</button>
+            <button onClick={()=> handleCart(product)}>Buy Now</button>
             <button>Details</button>
         </div>
         

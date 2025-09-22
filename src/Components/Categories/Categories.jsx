@@ -1,19 +1,25 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import Category from '../Category/Category';
 
-const Categories = ({categoryPromise}) => {
+const Categories = ({categoryPromise, onSelectCategory}) => {
     const categories = use(categoryPromise)
-    console.log(categories);
+    // console.log(categories);
+    const [singleCategory, setSingleCategory] = useState('')
+    const handleSingleCategory = (categorySlug) => {
+        console.log(singleCategory)
+        setSingleCategory(categorySlug)
+    }
+
     
     return (
         <div>
             <h3>Categories</h3>
             <ul className='category-container'>
                 {
-                    categories.map(category => <Category category={category}></Category>)
+                    categories.map((category, index) => <Category category={category} key={index} handleSingleCategory={handleSingleCategory}></Category>)
                 }
             </ul>
-        </div>
+        </div> 
     );
 };
 

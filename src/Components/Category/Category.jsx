@@ -1,13 +1,10 @@
 import React from 'react';
 
-const Category = ({category}) => {
-    console.log(category);
+const Category = ({category, handleSingleCategory}) => {
+    // console.log(category);
     
     return (
-            <li>{category.name}</li>
-
-
-
+            <li id={category.category} onClick={() => handleSingleCategory(category.slug)}>{category.name}</li>
     );
 };
 
